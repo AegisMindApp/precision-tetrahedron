@@ -1748,15 +1748,10 @@ Phase 20 evaluates whether per-molecule uncertainty quantification improves acqu
 
 ### 5.6 Patent Claim Mapping
 
-The experimental results support four filed provisional patents and two additional filings supported by the MSH3 pipeline (Phases 38–42):
+The experimental results support two filed provisional patents supported by the drug discovery pipeline (Phases 34–42):
 
-- **AU2026903450** (PTLE v1): Plateau-triggered learning rate event mechanism
-- **AU2026903588** (PTLE v2): Per-message rotation and warm restart extensions
-- **AU2026903927** (AegisMind): Multi-model orchestration with adaptive learning
 - **AMR1/AMR2** (filed Apr 2026): KPC-3 inhibitor discovery pipeline
 - **AU2026904944** (filed May 2026): KPC-3 + MSH3 ATPase inhibitors, Nash combination method, multi-target BO pipeline
-
-**PTLE provisionals (AU2026903450, AU2026903588).** The Condition B epoch-80 result (10-epoch plateau → restart → 2.7× improvement at ep83) constitutes the key experimental evidence for Claim 1. Phase 4b strengthens the claim by demonstrating precision-agnostic restart escape in FP32 (0.0184 eV at ep81), confirming the mechanism is broadly patentable beyond BF16-specific implementations. Phase 4a's regression finding (explicit lr=1e-4 causes overshooting) further supports that the specific restart protocol — including LR state at the moment of restart — is a non-obvious and material element. The INT8 QAT tetrahedron (§4.16) extends the claim scope: the STE training protocol that produces a geometrically isolated INT8 vertex is an independent method claim, distinct from the restart-amplification mechanism.
 
 **AMR1/AMR2 (KPC-3 pipeline).** The AMR-ChEMBL pipeline (§4.14) provides the primary experimental evidence: surrogate ρ=0.795 on 1,895 KPC-3 ChEMBL compounds and the UCB acquisition of CHEMBL3931277 (predicted pKd=6.19). Phase 34's Nash equilibrium extension (§4.31) is within the scope of AMR2: the 2×2 payoff matrix method (KPC-3 / efflux pump × inhibitor / beta-lactam partner) and the FP32/BF16 SynergyMLP surrogate constitute a separate claim layer — game-theoretic drug combination selection for carbapenem-resistant Enterobacteriaceae — that is independent of the single-target BO claims in AMR1.
 
