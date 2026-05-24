@@ -15,7 +15,7 @@ Two mechanisms jointly produce the cross-precision barrier. **Representational r
 
 This geometry directly enables a practical optimisation strategy. Training a SchNet-style GNN on QM9, BF16 with a plateau-triggered warm restart achieves **0.0215 eV** HOMO-LUMO gap MAE — a **2.7× improvement** over the FP32 baseline — driven by an inter-basin weight-space transition (1.447 eV, 273× the 0.005 eV same-precision reference). A four-condition ablation confirms that the restart mechanism, not precision alone, is the critical factor: BF16 at 2× capacity without restart matches FP32 (0.0564 eV). Two mechanistically distinct plateau types — LR-decay plateaus (cured by restart) and overfitting plateaus (resistant) — are diagnosable from the train/val gap without additional instrumentation.
 
-The framework is applied to drug discovery: a target-conditioned surrogate trained on 15,834 Vina docking scores achieves Spearman ρ = **0.827** (FP32, mean across six therapeutic targets; LINGO1, PCSK9, KPC3, APEX1, MSH3, CREBBP) with UCB acquisition outperforming EI. The AMR pipeline is extended to **Nash equilibrium drug combination optimisation** against both KPC-3 carbapenem resistance and MSH3 ATPase (repeat-instability target), using evolutionary game-theoretic 2×2 payoff matrices to identify synergistic inhibitor–partner pairs facing inescapable fitness cost. A **cross-target LMC experiment** (Phase 41) quantifies the weight-space barrier between KPC-3 and MSH3 surrogates (15.2% of intra-target precision barriers), and a **multi-target BO** (Phase 42) identifies EPTIFIBATIDE as a convergent dual-target candidate — independently selected by Vina docking, Nash synergy analysis, and surrogate Bayesian Optimisation. All 42 experimental phases ran on Google v6e-8 TPUs via the Google TPU Research Cloud (TRC); code and checkpoints are publicly available.
+The framework is applied to drug discovery: a target-conditioned surrogate trained on 15,834 Vina docking scores achieves Spearman ρ = **0.827** (FP32, mean across six therapeutic targets; LINGO1, PCSK9, KPC3, APEX1, MSH3, CREBBP) with UCB acquisition outperforming EI. The AMR pipeline is extended to **Nash equilibrium drug combination optimisation** against both KPC-3 carbapenem resistance and MSH3 ATPase (repeat-instability target), using evolutionary game-theoretic 2×2 payoff matrices to identify synergistic inhibitor–partner pairs facing inescapable fitness cost. A **cross-target LMC experiment** (Phase 41) quantifies the weight-space barrier between KPC-3 and MSH3 surrogates (15.2% of intra-target precision barriers), and a **multi-target BO** (Phase 42) identifies EPTIFIBATIDE as a convergent dual-target candidate — independently selected by Vina docking, Nash synergy analysis, and surrogate Bayesian Optimisation. All 42 experimental phases ran on Google v6e-8 TPUs via the Google TPU Research Cloud (TRC); code and checkpoints are publicly available at https://github.com/AegisMindApp/precision-tetrahedron (DOI: 10.5281/zenodo.20363636).
 
 ---
 
@@ -1794,7 +1794,7 @@ This paper reports the mechanistic characterisation of precision-induced loss la
 
 ## 7. Code and Data Availability
 
-- **Code:** github.com/tradingjohn/aegismind (analysis/flashoptim_tpu/)
+- **Code:** https://github.com/AegisMindApp/precision-tetrahedron (DOI: 10.5281/zenodo.20363636)
 - **Checkpoints (GCS: gs://aegismind-tpu-results/aegis_flashoptim/):**
   - condition_B_best.pt — Phase 1, epoch 83, val_mae=0.0215 eV
   - phase2_best.pt — Phase 2 fine-tuned, val_rmse_pKd=1.42
