@@ -11,6 +11,8 @@ John Goodman — AegisMind Research
 
 📄 [The Precision Tetrahedron.pdf](./The%20Precision%20Tetrahedron.pdf)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20363636.svg)](https://doi.org/10.5281/zenodo.20363636)
+
 ### Abstract
 
 Numerical precision is a systematic variable in neural network loss landscape geometry. We characterise inter-precision Linear Mode Connectivity (LMC) barriers across FP32, BF16, FP16, and INT8 for models from 1M to 124M parameters, identifying two structural findings:
@@ -94,12 +96,11 @@ Phases 1–9 establish the core BF16/FP32 LMC results. Phases 10–33 extend to 
   title   = {The Precision Tetrahedron: Loss Landscape Topology Across Number Formats and Multi-Target Drug Discovery},
   author  = {Goodman, John},
   year    = {2026},
-  note    = {Supported by Google TPU Research Cloud},
-  url     = {https://github.com/tradingjohn/precision-tetrahedron}
+  doi     = {10.5281/zenodo.20363636},
+  url     = {https://doi.org/10.5281/zenodo.20363636},
+  note    = {Supported by Google TPU Research Cloud}
 }
 ```
-
-*DOI will be assigned on Zenodo deposit.*
 
 ---
 
